@@ -289,7 +289,7 @@
                             <h4 class="font-semibold text-[#FF5A00] mb-2">PiCOS2 – 독자 LPR 엔진</h4>
                             <ul class="space-y-2 text-zinc-300">
                                 <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-0.5"></i> F1-Score 0.9976</li>
-                                <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-0.5"></i> 처리 속도 10배 향상</li>
+                                <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-0.5"></i> 외산 LPR 엔진 대비 처리 속도 10배 향상</li>
                                 <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-0.5"></i> 다양한 하드웨어 완전 호환</li>
                             </ul>
                         </div>
@@ -313,14 +313,49 @@
             </div>
 
             <!-- 이전 경력 -->
+            <!-- 하나씨엔에스 -->
             <div class="grid md:grid-cols-12 gap-8 items-start">
                 <div class="md:col-span-3">
-                    <div class="text-emerald-400 font-semibold text-sm md:text-base">2017.07 ~ 2022.08</div>
-                    <div class="text-2xl font-semibold">하나씨엔에스</div>
-                    <div class="text-zinc-400">기술연구소 · 대리</div>
+                    <div class="sticky top-8">
+                        <div class="text-emerald-400 font-semibold text-sm md:text-base">2017.07 ~ 2022.08</div>
+                        <div class="text-2xl font-semibold">하나씨엔에스</div>
+                        <div class="text-zinc-400">기술연구소 · 대리</div>
+                        <div class="text-sm text-zinc-500">5년 2개월</div>
+                    </div>
                 </div>
-                <div class="md:col-span-9 bg-zinc-900 rounded-3xl p-7 md:p-8 text-sm leading-relaxed">
-                    RTSP/ONVIF 128채널 지능형 영상 감시 시스템, 레이더+영상 복합 단속 시스템, 임베디드 Linux 기반 주행형 단속 시스템 개발
+                <div class="md:col-span-9 bg-zinc-900 rounded-3xl p-7 md:p-8">
+                    <div class="flex flex-wrap gap-3 mb-6">
+                        <span class="px-4 py-1 bg-[#FF5A00]/10 text-[#FF5A00] text-xs font-medium rounded-3xl">신호/과속 단속</span>
+                        <span class="px-4 py-1 bg-[#FF5A00]/10 text-[#FF5A00] text-xs font-medium rounded-3xl">지능형 VMS</span>
+                        <span class="px-4 py-1 bg-emerald-400/10 text-emerald-400 text-xs font-medium rounded-3xl">Edge AI</span>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-6">주요 성과</h3>
+                    <div class="grid md:grid-cols-3 gap-8 text-sm">
+                        <div>
+                            <h4 class="font-semibold text-[#FF5A00] mb-2">신호/과속 단속 시스템 – FixedLPR</h4>
+                            <ul class="space-y-2 text-zinc-300">
+                                <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-0.5"></i> Continental SRR-308 레이더 연동</li>
+                                <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-0.5"></i> 카메라 1대로 2차선 동시 인식</li>
+                                <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-0.5"></i> 도로교통공단 인증 획득 · 김해 최초 설치</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-[#FF5A00] mb-2">HISS Remote Client – 지능형 VMS</h4>
+                            <ul class="space-y-2 text-zinc-300">
+                                <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-0.5"></i> 최대 256채널 실시간 영상 스트리밍</li>
+                                <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-0.5"></i> 4개 View 페이지 동시 관제</li>
+                                <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-0.5"></i> RTSP/ONVIF 이기종 카메라 통합</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-[#FF5A00] mb-2">Edge AI 딥러닝 추론 최적화</h4>
+                            <ul class="space-y-2 text-zinc-300">
+                                <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-0.5"></i> Raspberry Pi 4B 임베디드 시스템 개발</li>
+                                <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-0.5"></i> NCS2 · Google Coral Edge TPU 연동</li>
+                                <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-0.5"></i> 다양한 딥러닝 Runtime 실시간 추론 구현</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -352,21 +387,21 @@
                     <ul class="mt-6 text-sm space-y-3">
                         <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> 물리 루프센서 완전 제거</li>
                         <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> 99.9% 검지율 (주·야간·악천후)</li>
-                        <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> PiCOS2 + ByteTrack + Kalman Filter</li>
+                        <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> NeuroX + ByteTrack + Kalman Filter</li>
                     </ul>
                     <div class="mt-10">
-                        <img src="Kavix.jpg" alt="Kavix 시스템" class="project-image w-full rounded-2xl">
+                        <video src="kavix-record.mp4" autoplay loop muted playsinline class="w-full rounded-2xl"></video>
                     </div>
                 </div>
                
                 <!-- PiCOS2 -->
                 <div class="project-card bg-gradient-to-br from-zinc-950 to-zinc-900 border border-white/10 rounded-3xl p-8">
                     <span class="text-xs uppercase tracking-widest bg-[#FF5A00]/10 text-[#FF5A00] px-3 py-1 rounded-full">LPR 엔진</span>
-                    <h3 class="text-2xl md:text-3xl font-semibold mt-4">PiCOS2 – 독자 고성능 LPR 엔진</h3>
+                    <h3 class="text-2xl md:text-3xl font-semibold mt-4">PiCOS2 – 고성능 LPR 엔진</h3>
                     <p class="text-zinc-300 mt-4">YOLO Bounding Box 한계 극복 → Affine Transformation 직접 추정</p>
                     <ul class="mt-6 text-sm space-y-3">
                         <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> F1-Score 0.9976</li>
-                        <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> 처리 속도 10배 향상</li>
+                        <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> 외산 LPR 엔진 대비 처리 속도 10배 향상</li>
                         <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> 다양한 Edge Device 지원</li>
                     </ul>
                     <div class="mt-10">
@@ -389,8 +424,8 @@
                     </div>
                     <div>
                         <div class="font-semibold">컴퓨터공학과 학사</div>
-                        <div class="text-zinc-400">학점 3.4 / 4.5</div>
                         <div class="text-sm mt-3">복수전공: 디지털미디어학과</div>
+                        <div class="text-sm mt-3">샌프란시스코주립대학교 단기연수</div>
                         <div class="text-xs bg-white/10 px-4 py-2 inline-block mt-6 rounded-3xl">졸업작품: 템플릿 매칭 기반 자동차 번호판 인식 프로그램</div>
                     </div>
                 </div>

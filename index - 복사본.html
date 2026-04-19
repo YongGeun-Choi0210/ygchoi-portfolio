@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>최용근 | AI Vision Engineer – 스마트 주차장</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@500&display=swap');
+       
+        :root {
+            --primary: #FF5A00;
+        }
+
+        * {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+
+        .hero-bg {
+            background: linear-gradient(135deg, #1f1200 0%, #3d1f00 100%);
+        }
+
+        .section-header {
+            position: relative;
+        }
+       
+        .section-header::after {
+            content: '';
+            position: absolute;
+            width: 64px;
+            height: 3px;
+            background: var(--primary);
+            bottom: -6px;
+            left: 0;
+        }
+
+        .project-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ==================== PDF PRINT OPTIMIZATION ==================== */
+        @page {
+            size: A4 portrait;
+            margin: 8mm;
+        }
+
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            body {
+                background: white !important;
+                color: #111827 !important;
+                font-size: 14px;
+                line-height: 1.55;
+            }
+
+            .hero-bg {
+                background: linear-gradient(135deg, #1f1200 0%, #3d1f00 100%) !important;
+                color: white !important;
+            }
+
+            nav, .print-hidden {
+                display: none !important;
+            }
+
+            .max-w-screen-2xl {
+                max-width: 100% !important;
+                margin: 0 auto !important;
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+            }
+
+            section {
+                page-break-inside: avoid;
+                margin-bottom: 35px;
+            }
+
+            h1, h2, h3, h4 {
+                page-break-after: avoid;
+            }
+
+            .project-card {
+                box-shadow: none !important;
+                border: 1px solid #e5e7eb !important;
+                break-inside: avoid;
+            }
+
+            img {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+
+            /* 텍스트 크기 조정 (PDF에서 너무 크지 않게) */
+            .text-5xl { font-size: 2.25rem !important; }
+            .text-6xl { font-size: 2.5rem !important; }
+            .text-7xl { font-size: 2.75rem !important; }
+            .text-8xl { font-size: 3rem !important; }
+            
+            .text-4xl { font-size: 1.75rem !important; }
+            .text-3xl { font-size: 1.5rem !important; }
+        }
+
+        /* 화면용 스타일 */
+        .profile-container {
+            position: relative;
+            width: 240px;
+            height: 240px;
+            margin: 0 auto;
+        }
+
+        .profile-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+            border-radius: 24px;
+            border: 8px solid rgba(255, 90, 0, 0.35);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.6);
+        }
+
+        @media (min-width: 768px) {
+            .profile-container {
+                width: 288px;
+                height: 288px;
+            }
+        }
+
+        .project-image {
+            max-height: 380px;
+            object-fit: contain;
+            border-radius: 16px;
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-white font-sans">
+
+    <!-- NAVBAR (PDF에서는 숨김) -->
+    <nav class="bg-zinc-950 border-b border-white/10 sticky top-0 z-50 print-hidden">
+        <div class="max-w-screen-2xl mx-auto px-5 sm:px-8 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-x-3">
+                <div class="w-9 h-9 bg-[#FF5A00] rounded-2xl flex items-center justify-center text-white font-bold text-2xl">최</div>
+                <h1 class="text-2xl font-semibold tracking-tighter">최용근</h1>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero-bg pt-12 pb-16 md:pt-20 md:pb-24">
+        <div class="max-w-screen-2xl mx-auto px-5 sm:px-8">
+            <div class="grid md:grid-cols-12 gap-10 lg:gap-12 items-center">
+                <!-- Left Content -->
+                <div class="md:col-span-7 text-center md:text-left">
+                    <div class="inline-flex items-center gap-x-2 bg-white/10 text-white text-sm font-medium px-6 py-2 rounded-3xl mb-6 mx-auto md:mx-0">
+                        <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                        AI-PAS팀 과장 | 스마트 주차장 AI Vision
+                    </div>
+                   
+                    <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold tracking-tighter leading-none mb-4">
+                        최용근
+                    </h1>
+                    <p class="text-2xl sm:text-3xl md:text-4xl text-[#FF5A00] font-medium mb-6">AI Vision Engineer</p>
+                   
+                    <p class="max-w-xl mx-auto md:mx-0 text-base sm:text-lg md:text-xl text-zinc-300 leading-relaxed">
+                        13년 차 영상처리·LPR 전문가<br>
+                        <span class="text-white font-semibold">AI-Loopless 시스템(Kavix)</span>을 1인 개발·상용화<br>
+                        물리 센서 완전 제거 + 스마트 주차장 운영 비용 대폭 절감
+                    </p>
+                   
+                    <div class="mt-10 md:mt-12 grid grid-cols-2 sm:grid-cols-3 md:flex gap-6 md:gap-x-10 justify-center md:justify-start">
+                        <div class="text-center md:text-left">
+                            <div class="text-4xl md:text-5xl font-semibold text-[#FF5A00]">99.9%</div>
+                            <div class="text-xs uppercase tracking-widest text-zinc-400 mt-1">Kavix 검지율</div>
+                        </div>
+                        <div class="text-center md:text-left">
+                            <div class="text-4xl md:text-5xl font-semibold text-[#FF5A00]">0.9976</div>
+                            <div class="text-xs uppercase tracking-widest text-zinc-400 mt-1">PiCOS2 F1-Score</div>
+                        </div>
+                        <div class="text-center md:text-left">
+                            <div class="text-4xl md:text-5xl font-semibold text-[#FF5A00]">10배</div>
+                            <div class="text-xs uppercase tracking-widest text-zinc-400 mt-1">처리 속도 향상</div>
+                        </div>
+                    </div>
+                </div>
+               
+                <!-- Profile Photo -->
+                <div class="md:col-span-5 flex justify-center pt-6 md:pt-0">
+                    <div class="profile-container">
+                        <div class="relative w-full h-full bg-zinc-900 rounded-3xl overflow-hidden border-8 border-[#FF5A00]/30 shadow-2xl">
+                            <img src="ygchoi.jpg" alt="최용근" class="profile-photo">
+                            <div class="absolute bottom-5 left-5 bg-black/70 backdrop-blur-md px-4 py-1.5 rounded-2xl text-xs sm:text-sm flex items-center gap-x-2">
+                                <i class="fa-solid fa-circle-check text-emerald-400"></i>
+                                1990년생 · 13년 경력
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about" class="max-w-screen-2xl mx-auto px-5 sm:px-8 py-16 md:py-20 border-t border-white/10">
+        <div class="grid md:grid-cols-12 gap-10 lg:gap-12">
+            <div class="md:col-span-4">
+                <h2 class="section-header text-4xl font-semibold mb-3">나의 강점</h2>
+                <p class="text-zinc-400">스마트 주차장 AI Vision 전문가</p>
+            </div>
+            <div class="md:col-span-8 text-base sm:text-lg leading-relaxed text-zinc-300 space-y-6 md:space-y-8">
+                <p>
+                    단순 구현이 아닌 <strong class="text-white">"스마트 주차장 운영 비용을 어떻게 줄일 것인가"</strong>부터 고민하는 개발자입니다.
+                </p>
+                <p>
+                    AI-Loopless 시스템이 아직 시장에 없던 시점에 <strong class="text-[#FF5A00]">Kavix</strong>를 1인 개발·상용화하여 물리 루프센서를 완전히 제거하고,
+                    설치·유지보수 비용을 대폭 절감하면서도 99.9% 검지율을 달성했습니다.
+                </p>
+                <p>
+                    동시에 외산 LPR 엔진 의존에서 벗어나 <strong class="text-[#FF5A00]">독자 PiCOS2 엔진</strong>을 개발하여 인식률·처리속도·환경 호환성을 혁신적으로 끌어올렸습니다.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="bg-zinc-900 py-16 md:py-20">
+        <div class="max-w-screen-2xl mx-auto px-5 sm:px-8">
+            <h2 class="section-header text-4xl font-semibold mb-10 md:mb-12">기술 스택</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <div class="bg-zinc-950 rounded-3xl p-7 md:p-8">
+                    <div class="flex items-center gap-x-3 mb-6">
+                        <i class="fa-solid fa-brain text-[#FF5A00] text-2xl"></i>
+                        <h3 class="text-xl font-semibold">AI · Computer Vision</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-white/10 text-white text-sm px-4 py-2 rounded-3xl">PyTorch</span>
+                        <span class="bg-white/10 text-white text-sm px-4 py-2 rounded-3xl">YOLOv8</span>
+                        <span class="bg-white/10 text-white text-sm px-4 py-2 rounded-3xl">OpenVINO</span>
+                        <span class="bg-white/10 text-white text-sm px-4 py-2 rounded-3xl">TensorFlow Lite</span>
+                        <span class="bg-white/10 text-white text-sm px-4 py-2 rounded-3xl">OpenCV</span>
+                        <span class="bg-white/10 text-white text-sm px-4 py-2 rounded-3xl">ByteTrack</span>
+                    </div>
+                </div>
+                <div class="bg-zinc-950 rounded-3xl p-7 md:p-8">
+                    <div class="flex items-center gap-x-3 mb-6">
+                        <i class="fa-solid fa-server text-[#FF5A00] text-2xl"></i>
+                        <h3 class="text-xl font-semibold">Backend · MSA</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-white/10 text-white text-sm px-4 py-2 rounded-3xl">Java · Spring Boot</span>
+                        <span class="bg-white/10 text-white text-sm px-4 py-2 rounded-3xl">Kubernetes</span>
+                        <span class="bg-white/10 text-white text-sm px-4 py-2 rounded-3xl">Docker</span>
+                        <span class="bg-white/10 text-white text-sm px-4 py-2 rounded-3xl">Kafka · MQTT</span>
+                    </div>
+                </div>
+                <div class="bg-zinc-950 rounded-3xl p-7 md:p-8">
+                    <div class="flex items-center gap-x-3 mb-6">
+                        <i class="fa-solid fa-microchip text-[#FF5A00] text-2xl"></i>
+                        <h3 class="text-xl font-semibold">Embedded · Smart Parking</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-white/10 text-white text-sm px-4 py-2 rounded-3xl">Raspberry Pi</span>
+                        <span class="bg-white/10 text-white text-sm px-4 py-2 rounded-3xl">Khadas Vim3 NPU</span>
+                        <span class="bg-white/10 text-white text-sm px-4 py-2 rounded-3xl">Edge TPU</span>
+                        <span class="bg-white/10 text-white text-sm px-4 py-2 rounded-3xl">RTSP / ONVIF</span>
+                    </div>
+                </div>
+                <div class="bg-zinc-950 rounded-3xl p-7 md:p-8">
+                    <div class="flex items-center gap-x-3 mb-6">
+                        <i class="fa-solid fa-laptop-code text-[#FF5A00] text-2xl"></i>
+                        <h3 class="text-xl font-semibold">기타</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-white/10 text-white text-sm px-4 py-2 rounded-3xl">React · Vue3</span>
+                        <span class="bg-white/10 text-white text-sm px-4 py-2 rounded-3xl">PostgreSQL</span>
+                        <span class="bg-white/10 text-white text-sm px-4 py-2 rounded-3xl">Python / C++</span>
+                        <span class="bg-white/10 text-white text-sm px-4 py-2 rounded-3xl">FFmpeg / OpenGL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="max-w-screen-2xl mx-auto px-5 sm:px-8 py-16 md:py-20 border-t border-white/10">
+        <h2 class="section-header text-4xl font-semibold mb-10 md:mb-12">경력</h2>
+        <div class="space-y-16">
+            <!-- 휴맥스모빌리티 -->
+            <div class="grid md:grid-cols-12 gap-8 items-start">
+                <div class="md:col-span-3">
+                    <div class="sticky top-8">
+                        <div class="text-emerald-400 font-semibold text-sm md:text-base">2022.08 ~ 재직 중</div>
+                        <div class="text-2xl font-semibold">휴맥스모빌리티</div>
+                        <div class="text-zinc-400">AI-PAS팀 · 과장</div>
+                        <div class="text-sm text-zinc-500">3년 9개월</div>
+                    </div>
+                </div>
+                <div class="md:col-span-9 bg-zinc-900 rounded-3xl p-7 md:p-8">
+                    <div class="flex flex-wrap gap-3 mb-6">
+                        <span class="px-4 py-1 bg-[#FF5A00]/10 text-[#FF5A00] text-xs font-medium rounded-3xl">AI-Loopless</span>
+                        <span class="px-4 py-1 bg-[#FF5A00]/10 text-[#FF5A00] text-xs font-medium rounded-3xl">PiCOS2</span>
+                        <span class="px-4 py-1 bg-emerald-400/10 text-emerald-400 text-xs font-medium rounded-3xl">K8s MSA</span>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-6">주요 성과</h3>
+                    <div class="grid md:grid-cols-3 gap-8 text-sm">
+                        <div>
+                            <h4 class="font-semibold text-[#FF5A00] mb-2">PiCOS2 – 독자 LPR 엔진</h4>
+                            <ul class="space-y-2 text-zinc-300">
+                                <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-0.5"></i> F1-Score 0.9976</li>
+                                <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-0.5"></i> 처리 속도 10배 향상</li>
+                                <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-0.5"></i> 다양한 하드웨어 완전 호환</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-[#FF5A00] mb-2">Kavix – AI Loopless 검지 시스템</h4>
+                            <ul class="space-y-2 text-zinc-300">
+                                <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-0.5"></i> 물리 루프센서 100% 제거</li>
+                                <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-0.5"></i> 99.9% 검지율</li>
+                                <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-0.5"></i> 1인 개발·상용화</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-[#FF5A00] mb-2">MHP – Mobility Hub Platform</h4>
+                            <ul class="space-y-2 text-zinc-300">
+                                <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-0.5"></i> Kubernetes 기반 MSA 구축</li>
+                                <li class="flex gap-x-2"><i class="fa-solid fa-check text-emerald-400 mt-0.5"></i> 대용량 이벤트 처리</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 이전 경력 -->
+            <div class="grid md:grid-cols-12 gap-8 items-start">
+                <div class="md:col-span-3">
+                    <div class="text-emerald-400 font-semibold text-sm md:text-base">2017.07 ~ 2022.08</div>
+                    <div class="text-2xl font-semibold">하나씨엔에스</div>
+                    <div class="text-zinc-400">기술연구소 · 대리</div>
+                </div>
+                <div class="md:col-span-9 bg-zinc-900 rounded-3xl p-7 md:p-8 text-sm leading-relaxed">
+                    RTSP/ONVIF 128채널 지능형 영상 감시 시스템, 레이더+영상 복합 단속 시스템, 임베디드 Linux 기반 주행형 단속 시스템 개발
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-12 gap-8 items-start opacity-75">
+                <div class="md:col-span-3">
+                    <div class="text-emerald-400 font-semibold text-sm md:text-base">2014.01 ~ 2017.02</div>
+                    <div class="text-2xl font-semibold">넥스파시스템</div>
+                    <div class="text-zinc-400">기술연구소 · 연구원</div>
+                </div>
+                <div class="md:col-span-9 bg-zinc-900 rounded-3xl p-7 md:p-8 text-sm leading-relaxed">
+                    공공 불법주정차·도로방범 시스템 핵심 개발 (전국 지자체 95% 보급)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="bg-zinc-900 py-16 md:py-20">
+        <div class="max-w-screen-2xl mx-auto px-5 sm:px-8">
+            <h2 class="section-header text-4xl font-semibold mb-4">주요 프로젝트</h2>
+            <p class="text-zinc-400 mb-12">스마트 주차장 AI Vision 혁신 사례</p>
+           
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Kavix -->
+                <div class="project-card bg-gradient-to-br from-zinc-950 to-zinc-900 border border-white/10 rounded-3xl p-8">
+                    <span class="text-xs uppercase tracking-widest bg-[#FF5A00]/10 text-[#FF5A00] px-3 py-1 rounded-full">AI Loopless</span>
+                    <h3 class="text-2xl md:text-3xl font-semibold mt-4">Kavix – AI 기반 비접촉 차량 검지 시스템</h3>
+                    <p class="text-zinc-300 mt-4">시장에 AI-Loopless가 존재하지 않던 시점에 1인 개발·상용화</p>
+                    <ul class="mt-6 text-sm space-y-3">
+                        <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> 물리 루프센서 완전 제거</li>
+                        <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> 99.9% 검지율 (주·야간·악천후)</li>
+                        <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> PiCOS2 + ByteTrack + Kalman Filter</li>
+                    </ul>
+                    <div class="mt-10">
+                        <img src="Kavix.jpg" alt="Kavix 시스템" class="project-image w-full">
+                    </div>
+                </div>
+               
+                <!-- PiCOS2 -->
+                <div class="project-card bg-gradient-to-br from-zinc-950 to-zinc-900 border border-white/10 rounded-3xl p-8">
+                    <span class="text-xs uppercase tracking-widest bg-[#FF5A00]/10 text-[#FF5A00] px-3 py-1 rounded-full">LPR 엔진</span>
+                    <h3 class="text-2xl md:text-3xl font-semibold mt-4">PiCOS2 – 독자 고성능 LPR 엔진</h3>
+                    <p class="text-zinc-300 mt-4">YOLO Bounding Box 한계 극복 → Affine Transformation 직접 추정</p>
+                    <ul class="mt-6 text-sm space-y-3">
+                        <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> F1-Score 0.9976</li>
+                        <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> 처리 속도 10배 향상</li>
+                        <li class="flex items-center gap-2"><span class="text-emerald-400">✔</span> 다양한 Edge Device 지원</li>
+                    </ul>
+                    <div class="mt-10">
+                        <img src="PiCOS2.jpg" alt="PiCOS2 시스템" class="project-image w-full">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="max-w-screen-2xl mx-auto px-5 sm:px-8 py-16 md:py-20 border-t border-white/10">
+        <div class="grid md:grid-cols-2 gap-12 lg:gap-16">
+            <div>
+                <h2 class="section-header text-4xl font-semibold mb-8">학력</h2>
+                <div class="flex gap-8">
+                    <div class="text-right w-32 shrink-0">
+                        <div class="font-semibold">2008 — 2014</div>
+                        <div class="text-zinc-400 text-sm">한림대학교</div>
+                    </div>
+                    <div>
+                        <div class="font-semibold">컴퓨터공학과 학사</div>
+                        <div class="text-zinc-400">학점 3.4 / 4.5</div>
+                        <div class="text-sm mt-3">복수전공: 디지털미디어학과</div>
+                        <div class="text-xs bg-white/10 px-4 py-2 inline-block mt-6 rounded-3xl">졸업작품: 템플릿 매칭 기반 자동차 번호판 인식 프로그램</div>
+                    </div>
+                </div>
+            </div>
+           
+            <div>
+                <h2 class="section-header text-4xl font-semibold mb-8">자격증</h2>
+                <div class="space-y-6">
+                    <div class="flex justify-between border-b border-white/10 pb-6">
+                        <div class="font-medium">정보처리기사</div>
+                        <div class="text-sm text-zinc-400">2015.05</div>
+                    </div>
+                    <div class="flex justify-between border-b border-white/10 pb-6">
+                        <div class="font-medium">컴퓨터활용능력 2급</div>
+                        <div class="text-sm text-zinc-400">2006.12</div>
+                    </div>
+                    <div class="flex justify-between">
+                        <div>
+                            <div class="font-medium">Microsoft Office Specialist 2007 Master</div>
+                            <div class="text-sm text-zinc-400">Microsoft</div>
+                        </div>
+                        <div class="text-sm text-zinc-400">2013.01</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black py-12 border-t border-white/10 print:bg-white print:text-zinc-800">
+        <div class="max-w-screen-2xl mx-auto px-5 sm:px-8 text-center text-xs text-zinc-500 print:text-zinc-600">
+            © 2026 최용근 | AI Vision Engineer 포트폴리오<br>
+            Kavix와 PiCOS2 기술로 스마트 주차장 시장을 선도하고 있습니다.
+        </div>
+    </footer>
+
+    <script>
+        console.log('%c✅ 최용근 포트폴리오 - PDF 최적화 완성 버전 적용 완료', 'color:#FF5A00; font-size:13px; font-weight:700');
+    </script>
+</body>
+</html>
